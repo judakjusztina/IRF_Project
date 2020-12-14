@@ -225,6 +225,7 @@
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Mentés (csv)";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Form1
             // 

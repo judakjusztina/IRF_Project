@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,8 +48,7 @@ namespace FMBNK1_Beadando
                     adat.beadando = node.ChildNodes[4].InnerText;
 
                     Adatok.Add(adat);
-                
-
+           
             }
         }
 
@@ -187,9 +187,86 @@ namespace FMBNK1_Beadando
                 
 
             }
+            //Hallgatók számának megjelenítése
             label7.Text = (dataGridView2.Rows.Count).ToString();
         }
+        
+        //Mentés funkció 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            const string message = "A mentett fáljban csak a hallgatók Neptun-kódja szerepeljen?";
+            const string caption = "Mentés";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-       
+            if (result== DialogResult.Cancel)
+            {
+                
+            }
+            else if (result == DialogResult.No)
+            {
+                mentes();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                mentesnevnelkul();
+            }
+
+        }
+        private void mentes()
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.InitialDirectory = Application.StartupPath;
+            sfd.Filter = "Comma Seperated Values (*.csv)|*.csv";
+            sfd.DefaultExt = "csv";
+            sfd.AddExtension = true;
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                foreach (var a in Adatok)
+                {
+                    sw.Write(a.nev);
+                    sw.Write(";");
+                    sw.Write(a.neptun);
+                    sw.Write(";");
+                    sw.Write(a.reszvetel);
+                    sw.Write(";");
+                    sw.Write(a.pontszam);
+                    sw.Write(";");
+                    sw.Write(a.beadando);
+                    sw.WriteLine();
+
+                }
+            }
+        }
+        private void mentesnevnelkul()
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.InitialDirectory = Application.StartupPath;
+            sfd.Filter = "Comma Seperated Values (*.csv)|*.csv";
+            sfd.DefaultExt = "csv";
+            sfd.AddExtension = true;
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                foreach (var a in Adatok)
+                {
+                    sw.Write(a.neptun);
+                    sw.Write(";");
+                    sw.Write(a.reszvetel);
+                    sw.Write(";");
+                    sw.Write(a.pontszam);
+                    sw.Write(";");
+                    sw.Write(a.beadando);
+                    sw.WriteLine();
+
+                }
+            }
+        }
     }
 }
