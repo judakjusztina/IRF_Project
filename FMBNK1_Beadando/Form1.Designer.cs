@@ -70,6 +70,7 @@
             this.btnGet.TabIndex = 1;
             this.btnGet.Text = "Lekérdez";
             this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click_1);
             // 
             // btnDelete
             // 

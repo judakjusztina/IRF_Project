@@ -15,10 +15,12 @@ namespace FMBNK1_Beadando
 {
     public partial class Form1 : Form
     {
+
         BindingList<HallgatoAdat> Adatok = new BindingList<HallgatoAdat>();
         BindingList<HallgatoAdat> Elegtelen = new BindingList<HallgatoAdat>();
 
-       
+        XmlDocument xml = new XmlDocument();
+
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,6 @@ namespace FMBNK1_Beadando
         {
             Adatok.Clear();
 
-            XmlDocument xml = new XmlDocument();
             xml.Load("Hallgatok.xml");
 
             foreach (XmlNode node in xml.DocumentElement)
@@ -48,20 +49,11 @@ namespace FMBNK1_Beadando
                     adat.beadando = node.ChildNodes[4].InnerText;
 
                     Adatok.Add(adat);
-           
             }
         }
-
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void btnGet_Click(object sender, EventArgs e)
+        private void btnGet_Click_1(object sender, EventArgs e)
         {
             Elegtelen.Clear();
-
             XmlDocument xml = new XmlDocument();
             xml.Load("Hallgatok.xml");
 
@@ -72,7 +64,7 @@ namespace FMBNK1_Beadando
                 //Mindhárom feltétel aktív
                 if (checkBoxhianyzas.Checked && checkboxvizsga.Checked && checkboxbead.Checked)
                 {
-                    if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value  || int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text) || node.ChildNodes[4].InnerText == "Nem") 
+                    if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value || int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text) || node.ChildNodes[4].InnerText == "Nem")
                     {
                         var adat = new HallgatoAdat();
 
@@ -87,8 +79,8 @@ namespace FMBNK1_Beadando
                 }
                 else
                 {
-                  //Hiányzás és vizsga aktív
-                  if (checkBoxhianyzas.Checked && checkboxvizsga.Checked)
+                    //Hiányzás és vizsga aktív
+                    if (checkBoxhianyzas.Checked && checkboxvizsga.Checked)
                     {
                         if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value || int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text))
                         {
@@ -184,12 +176,38 @@ namespace FMBNK1_Beadando
                         }
                     }
                 }
-                
+
 
             }
             //Hallgatók számának megjelenítése
             label7.Text = (dataGridView2.Rows.Count).ToString();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+        
+            const string message = "Biztosan törölni szeretnéd a azokat a hallgatókat, akik nem feleltek meg a követelményeknek?";
+            const string caption = "Törlés";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                foreach (HallgatoAdat t in Elegtelen)
+                {
+                    foreach (XmlNode xNode in xml.SelectNodes("hallgatok/diak"))
+                    {
+                        
+                        string torlendo = t.neptun;
+                        if (xNode.SelectSingleNode("Neptun").InnerText == torlendo) xNode.ParentNode.RemoveChild(xNode);
+                    }
+                }
+                xml.Save("Hallgatok.xml");
+                
+            }
+            
+        }
+
+       
         
         //Mentés funkció 
         private void btnSave_Click(object sender, EventArgs e)
@@ -198,11 +216,7 @@ namespace FMBNK1_Beadando
             const string caption = "Mentés";
             var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            if (result== DialogResult.Cancel)
-            {
-                
-            }
-            else if (result == DialogResult.No)
+            if (result == DialogResult.No)
             {
                 mentes();
             }
