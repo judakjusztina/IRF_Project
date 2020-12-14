@@ -58,7 +58,7 @@ namespace FMBNK1_Beadando
             //
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnGet_Click(object sender, EventArgs e)
         {
             Elegtelen.Clear();
 
@@ -190,6 +190,6 @@ namespace FMBNK1_Beadando
             label7.Text = (dataGridView2.Rows.Count).ToString();
         }
 
-
+       
     }
 }
