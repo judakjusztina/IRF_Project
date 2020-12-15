@@ -21,7 +21,6 @@ namespace FMBNK1_Beadando
 
         XmlDocument xml = new XmlDocument();
 
-        
 
         public Form1()
         {
@@ -36,7 +35,7 @@ namespace FMBNK1_Beadando
         {
             //Összes
             Felulet f = new Felulet();
-            f.Left = 50;
+            f.Left = 40;
             f.Top = 50;
             Controls.Add(f);
             f.DataSource = Adatok;
@@ -48,7 +47,7 @@ namespace FMBNK1_Beadando
 
             //Elégtelenek
             Felulet l = new Felulet();
-            l.Left = 50;
+            l.Left = 40;
             l.Top = 300;
             Controls.Add(l);
             l.DataSource = Elegtelen;
@@ -59,9 +58,6 @@ namespace FMBNK1_Beadando
             l.Columns[4].HeaderText = "Beadandó";
 
             gombok g = new gombok();
-            g.Left = 1;
-            g.Top = 1;
-            Controls.Add(g);
         }
         
        
@@ -319,5 +315,7 @@ namespace FMBNK1_Beadando
                 mentesnevnelkul();
             }
         }
+
+        
     }
 }

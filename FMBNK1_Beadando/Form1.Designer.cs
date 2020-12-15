@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ExamTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,12 +46,13 @@
             this.btnDelete = new FMBNK1_Beadando.gombok();
             this.btnGet = new FMBNK1_Beadando.gombok();
             this.btnSave = new FMBNK1_Beadando.gombok();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // ExamTB
             // 
-            this.ExamTB.Location = new System.Drawing.Point(1017, 114);
+            this.ExamTB.Location = new System.Drawing.Point(1066, 217);
             this.ExamTB.Name = "ExamTB";
             this.ExamTB.Size = new System.Drawing.Size(120, 22);
             this.ExamTB.TabIndex = 3;
@@ -58,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(785, 119);
+            this.label2.Location = new System.Drawing.Point(834, 222);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(226, 17);
             this.label2.TabIndex = 7;
@@ -67,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(785, 87);
+            this.label3.Location = new System.Drawing.Point(834, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 17);
             this.label3.TabIndex = 8;
@@ -76,7 +78,7 @@
             // checkboxvizsga
             // 
             this.checkboxvizsga.AutoSize = true;
-            this.checkboxvizsga.Location = new System.Drawing.Point(1171, 118);
+            this.checkboxvizsga.Location = new System.Drawing.Point(1220, 221);
             this.checkboxvizsga.Name = "checkboxvizsga";
             this.checkboxvizsga.Size = new System.Drawing.Size(18, 17);
             this.checkboxvizsga.TabIndex = 9;
@@ -84,7 +86,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(1019, 82);
+            this.numericUpDown1.Location = new System.Drawing.Point(1068, 185);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             12,
             0,
@@ -97,7 +99,7 @@
             // checkBoxhianyzas
             // 
             this.checkBoxhianyzas.AutoSize = true;
-            this.checkBoxhianyzas.Location = new System.Drawing.Point(1171, 85);
+            this.checkBoxhianyzas.Location = new System.Drawing.Point(1220, 188);
             this.checkBoxhianyzas.Name = "checkBoxhianyzas";
             this.checkBoxhianyzas.Size = new System.Drawing.Size(18, 17);
             this.checkBoxhianyzas.TabIndex = 11;
@@ -106,7 +108,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 332);
+            this.label1.Location = new System.Drawing.Point(65, 332);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(275, 17);
             this.label1.TabIndex = 13;
@@ -115,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 37);
+            this.label4.Location = new System.Drawing.Point(65, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 17);
             this.label4.TabIndex = 14;
@@ -124,7 +126,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1150, 64);
+            this.label5.Location = new System.Drawing.Point(1199, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 15;
@@ -133,7 +135,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(785, 153);
+            this.label6.Location = new System.Drawing.Point(834, 256);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 17);
             this.label6.TabIndex = 16;
@@ -142,7 +144,7 @@
             // checkboxbead
             // 
             this.checkboxbead.AutoSize = true;
-            this.checkboxbead.Location = new System.Drawing.Point(1171, 153);
+            this.checkboxbead.Location = new System.Drawing.Point(1220, 256);
             this.checkboxbead.Name = "checkboxbead";
             this.checkboxbead.Size = new System.Drawing.Size(18, 17);
             this.checkboxbead.TabIndex = 18;
@@ -159,7 +161,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(805, 371);
+            this.label8.Location = new System.Drawing.Point(849, 597);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(201, 17);
             this.label8.TabIndex = 20;
@@ -177,7 +179,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(1012, 363);
+            this.btnDelete.Location = new System.Drawing.Point(1056, 593);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(110, 25);
             this.btnDelete.TabIndex = 24;
@@ -188,7 +190,7 @@
             // btnGet
             // 
             this.btnGet.BackColor = System.Drawing.Color.White;
-            this.btnGet.Location = new System.Drawing.Point(901, 213);
+            this.btnGet.Location = new System.Drawing.Point(1022, 304);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(110, 25);
             this.btnGet.TabIndex = 23;
@@ -207,11 +209,21 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(815, 15);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(472, 130);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 589);
+            this.BackColor = System.Drawing.Color.Thistle;
+            this.ClientSize = new System.Drawing.Size(1316, 662);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.btnSave);
@@ -255,6 +267,7 @@
         private gombok btnSave;
         private gombok btnGet;
         private gombok btnDelete;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

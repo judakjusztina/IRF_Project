@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Állítsa be a követelményrendszerét az alábbi feltételekkel, majd aktiválja őket. Ezt követően kattintson a "Lekérdezés" gombra. A kattintás után az alsó táblázatba kerülnek azok a hallgatók, akik nem felelnek meg a követelményeknek. A lekérdezés után törölheti ezeket a hallgatókat a "Törlés" gombbal. Valamint lehetősége van menteni a hallgatókat, a "Mentés" gombbal. Ahhoz, hogy a mentés során az elégtelen teljesítményú+ű hallgatók ne kerüljenek a listába, előtte törölje őket.</value>
+  </data>
 </root>

@@ -57,7 +57,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="gombok.cs">
+    <Compile Include="Entities\Gombok.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
