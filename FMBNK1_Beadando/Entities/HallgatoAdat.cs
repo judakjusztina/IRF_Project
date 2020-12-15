@@ -12,7 +12,7 @@ namespace FMBNK1_Beadando.Entities
         public string neptun { get; set; }
         public int reszvetel { get; set; }
         public int pontszam {get;set;}
-        public string beadando { get; set; }
+        public Beadando beadando { get; set; }
 
     }
 }

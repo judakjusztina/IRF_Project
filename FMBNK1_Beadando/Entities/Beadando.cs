@@ -8,7 +8,7 @@ namespace FMBNK1_Beadando.Entities
 {
     public enum Beadando
     {
-        Igen = 1,
-        Nem = 0
+        Hiányzik,
+        Leadta
     }
 }

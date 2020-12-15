@@ -15,7 +15,7 @@ namespace FMBNK1_Beadando.Entities
             Height = 200;
             Width = 560;
             GridColor = Color.White;
-            DefaultCellStyle.Font = new Font("Calibri", 12);
+            DefaultCellStyle.Font = new Font("Calibri", 12); 
             DefaultCellStyle.BackColor = Color.Beige;
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 

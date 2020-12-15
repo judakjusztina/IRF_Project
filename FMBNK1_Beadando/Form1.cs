@@ -21,8 +21,7 @@ namespace FMBNK1_Beadando
 
         XmlDocument xml = new XmlDocument();
 
-
-        public Form1()
+       public Form1()
         {
             InitializeComponent();
 
@@ -65,7 +64,7 @@ namespace FMBNK1_Beadando
         {
             Adatok.Clear();
 
-            xml.Load("Hallgatok.xml");
+            xml.Load("Hallgatok2.xml");
 
             foreach (XmlNode node in xml.DocumentElement)
             {
@@ -76,7 +75,7 @@ namespace FMBNK1_Beadando
                     adat.neptun = node.ChildNodes[1].InnerText;
                     adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                     adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                    adat.beadando = node.ChildNodes[4].InnerText;
+                    adat.beadando = (Beadando)Enum.Parse(typeof(Beadando),(node.ChildNodes[4].InnerText));
 
                     Adatok.Add(adat);
             }
@@ -85,8 +84,8 @@ namespace FMBNK1_Beadando
         {
             Elegtelen.Clear();
             XmlDocument xml = new XmlDocument();
-            xml.Load("Hallgatok.xml");
-            
+            xml.Load("Hallgatok2.xml");
+
 
             foreach (XmlNode node in xml.DocumentElement)
             {
@@ -101,7 +100,7 @@ namespace FMBNK1_Beadando
                         adat.neptun = node.ChildNodes[1].InnerText;
                         adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                         adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                        adat.beadando = node.ChildNodes[4].InnerText;
+                        adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                         Elegtelen.Add(adat);
                     }
@@ -119,7 +118,7 @@ namespace FMBNK1_Beadando
                             adat.neptun = node.ChildNodes[1].InnerText;
                             adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                             adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                            adat.beadando = node.ChildNodes[4].InnerText;
+                            adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                             Elegtelen.Add(adat);
                         }
@@ -135,7 +134,7 @@ namespace FMBNK1_Beadando
                             adat.neptun = node.ChildNodes[1].InnerText;
                             adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                             adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                            adat.beadando = node.ChildNodes[4].InnerText;
+                            adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                             Elegtelen.Add(adat);
                         }
@@ -151,7 +150,7 @@ namespace FMBNK1_Beadando
                             adat.neptun = node.ChildNodes[1].InnerText;
                             adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                             adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                            adat.beadando = node.ChildNodes[4].InnerText;
+                            adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                             Elegtelen.Add(adat);
                         }
@@ -167,7 +166,7 @@ namespace FMBNK1_Beadando
                             adat.neptun = node.ChildNodes[1].InnerText;
                             adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                             adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                            adat.beadando = node.ChildNodes[4].InnerText;
+                            adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                             Elegtelen.Add(adat);
                         }
@@ -183,7 +182,7 @@ namespace FMBNK1_Beadando
                             adat.neptun = node.ChildNodes[1].InnerText;
                             adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                             adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                            adat.beadando = node.ChildNodes[4].InnerText;
+                            adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                             Elegtelen.Add(adat);
                         }
@@ -199,7 +198,7 @@ namespace FMBNK1_Beadando
                             adat.neptun = node.ChildNodes[1].InnerText;
                             adat.reszvetel = int.Parse(node.ChildNodes[2].InnerText);
                             adat.pontszam = int.Parse(node.ChildNodes[3].InnerText);
-                            adat.beadando = node.ChildNodes[4].InnerText;
+                            adat.beadando = (Beadando)Enum.Parse(typeof(Beadando), (node.ChildNodes[4].InnerText));
 
                             Elegtelen.Add(adat);
                         }
@@ -208,9 +207,12 @@ namespace FMBNK1_Beadando
 
 
             }
+
+
             //Hallgatók számának megjelenítése
             //  label7.Text = (dataGridView2.Rows.Count).ToString();
             feluletletrehozas();
+
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)
@@ -316,6 +318,6 @@ namespace FMBNK1_Beadando
             }
         }
 
-        
+       
     }
 }
