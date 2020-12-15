@@ -43,16 +43,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnDelete = new FMBNK1_Beadando.gombok();
             this.btnGet = new FMBNK1_Beadando.gombok();
             this.btnSave = new FMBNK1_Beadando.gombok();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // ExamTB
             // 
-            this.ExamTB.Location = new System.Drawing.Point(1066, 217);
+            this.ExamTB.Location = new System.Drawing.Point(1066, 222);
             this.ExamTB.Name = "ExamTB";
             this.ExamTB.Size = new System.Drawing.Size(120, 22);
             this.ExamTB.TabIndex = 3;
@@ -78,7 +81,7 @@
             // checkboxvizsga
             // 
             this.checkboxvizsga.AutoSize = true;
-            this.checkboxvizsga.Location = new System.Drawing.Point(1220, 221);
+            this.checkboxvizsga.Location = new System.Drawing.Point(1220, 226);
             this.checkboxvizsga.Name = "checkboxvizsga";
             this.checkboxvizsga.Size = new System.Drawing.Size(18, 17);
             this.checkboxvizsga.TabIndex = 9;
@@ -135,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(834, 256);
+            this.label6.Location = new System.Drawing.Point(834, 266);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 17);
             this.label6.TabIndex = 16;
@@ -144,7 +147,7 @@
             // checkboxbead
             // 
             this.checkboxbead.AutoSize = true;
-            this.checkboxbead.Location = new System.Drawing.Point(1220, 256);
+            this.checkboxbead.Location = new System.Drawing.Point(1220, 267);
             this.checkboxbead.Name = "checkboxbead";
             this.checkboxbead.Size = new System.Drawing.Size(18, 17);
             this.checkboxbead.TabIndex = 18;
@@ -175,6 +178,23 @@
             this.label9.Size = new System.Drawing.Size(212, 17);
             this.label9.TabIndex = 21;
             this.label9.Text = "Szeretné menteni a hallgatókat?";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(815, 15);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(472, 130);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(834, 239);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 17);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "(max 50)";
             // 
             // btnDelete
             // 
@@ -209,13 +229,22 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
-            // richTextBox1
+            // label11
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(815, 15);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(472, 130);
-            this.richTextBox1.TabIndex = 26;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(543, 332);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 17);
+            this.label11.TabIndex = 28;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(421, 332);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 17);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Hallgatók száma:";
             // 
             // Form1
             // 
@@ -223,6 +252,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(1316, 662);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnGet);
@@ -268,6 +300,9 @@
         private gombok btnGet;
         private gombok btnDelete;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 

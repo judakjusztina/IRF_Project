@@ -204,13 +204,11 @@ namespace FMBNK1_Beadando
                         }
                     }
                 }
-
-
             }
 
 
             //Hallgatók számának megjelenítése
-            //  label7.Text = (dataGridView2.Rows.Count).ToString();
+             label11.Text = (Elegtelen.Count).ToString();
             feluletletrehozas();
 
         }
@@ -238,7 +236,7 @@ namespace FMBNK1_Beadando
                             if (xNode.SelectSingleNode("Neptun").InnerText == torlendo) xNode.ParentNode.RemoveChild(xNode);
                         }
                     }
-                    xml.Save("Hallgatok.xml");
+                    xml.Save("Hallgatok2.xml");
                 }
             }
         }
@@ -318,6 +316,6 @@ namespace FMBNK1_Beadando
             }
         }
 
-       
+      
     }
 }

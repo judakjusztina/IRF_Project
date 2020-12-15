@@ -18,7 +18,6 @@ namespace FMBNK1_Beadando.Entities
             DefaultCellStyle.Font = new Font("Calibri", 12); 
             DefaultCellStyle.BackColor = Color.Beige;
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
         }
     }
 
