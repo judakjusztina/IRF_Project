@@ -28,16 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnGet = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.ExamTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.checkboxvizsga = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.checkBoxhianyzas = new System.Windows.Forms.CheckBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,41 +42,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnDelete = new FMBNK1_Beadando.gombok();
+            this.btnGet = new FMBNK1_Beadando.gombok();
+            this.btnSave = new FMBNK1_Beadando.gombok();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 84);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 212);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // btnGet
-            // 
-            this.btnGet.Location = new System.Drawing.Point(937, 192);
-            this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(111, 23);
-            this.btnGet.TabIndex = 1;
-            this.btnGet.Text = "Lekérdez";
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGet_Click_1);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(1024, 368);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Törlés";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ExamTB
             // 
@@ -137,20 +103,10 @@
             this.checkBoxhianyzas.TabIndex = 11;
             this.checkBoxhianyzas.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(21, 349);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(738, 228);
-            this.dataGridView2.TabIndex = 12;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 315);
+            this.label1.Location = new System.Drawing.Point(27, 332);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(275, 17);
             this.label1.TabIndex = 13;
@@ -159,7 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 51);
+            this.label4.Location = new System.Drawing.Point(33, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 17);
             this.label4.TabIndex = 14;
@@ -212,27 +168,52 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(417, 51);
+            this.label9.Location = new System.Drawing.Point(277, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(212, 17);
             this.label9.TabIndex = 21;
             this.label9.Text = "Szeretné menteni a hallgatókat?";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(1012, 363);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(110, 25);
+            this.btnDelete.TabIndex = 24;
+            this.btnDelete.Text = "Törlés";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            // 
+            // btnGet
+            // 
+            this.btnGet.BackColor = System.Drawing.Color.White;
+            this.btnGet.Location = new System.Drawing.Point(901, 213);
+            this.btnGet.Name = "btnGet";
+            this.btnGet.Size = new System.Drawing.Size(110, 25);
+            this.btnGet.TabIndex = 23;
+            this.btnGet.Text = "Lekérdez";
+            this.btnGet.UseVisualStyleBackColor = false;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(649, 45);
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(505, 33);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 23);
+            this.btnSave.Size = new System.Drawing.Size(110, 25);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Mentés (csv)";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 589);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnGet);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -242,38 +223,27 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.checkBoxhianyzas);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.checkboxvizsga);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ExamTB);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnGet);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnGet;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox ExamTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkboxvizsga;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.CheckBox checkBoxhianyzas;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -282,7 +252,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnSave;
+        private gombok btnSave;
+        private gombok btnGet;
+        private gombok btnDelete;
     }
 }
 

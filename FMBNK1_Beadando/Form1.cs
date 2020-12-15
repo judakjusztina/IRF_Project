@@ -21,16 +21,50 @@ namespace FMBNK1_Beadando
 
         XmlDocument xml = new XmlDocument();
 
+        
+
         public Form1()
         {
             InitializeComponent();
 
+            feluletletrehozas();
             xmlfeldolgozas();
-
-            dataGridView2.Visible = false;
-            dataGridView1.DataSource = Adatok;
-            dataGridView2.DataSource = Elegtelen;
+           
         }
+
+        public void feluletletrehozas()
+        {
+            //Összes
+            Felulet f = new Felulet();
+            f.Left = 50;
+            f.Top = 50;
+            Controls.Add(f);
+            f.DataSource = Adatok;
+            f.Columns[0].HeaderText = "Név";
+            f.Columns[1].HeaderText = "Neptun";
+            f.Columns[2].HeaderText = "Hiányzások";
+            f.Columns[3].HeaderText = "Negyedéves pont";
+            f.Columns[4].HeaderText = "Beadandó";
+
+            //Elégtelenek
+            Felulet l = new Felulet();
+            l.Left = 50;
+            l.Top = 300;
+            Controls.Add(l);
+            l.DataSource = Elegtelen;
+            l.Columns[0].HeaderText = "Név";
+            l.Columns[1].HeaderText = "Neptun";
+            l.Columns[2].HeaderText = "Hiányzások";
+            l.Columns[3].HeaderText = "Negyedéves pont";
+            l.Columns[4].HeaderText = "Beadandó";
+
+            gombok g = new gombok();
+            g.Left = 1;
+            g.Top = 1;
+            Controls.Add(g);
+        }
+        
+       
         public void xmlfeldolgozas()
         {
             Adatok.Clear();
@@ -51,13 +85,12 @@ namespace FMBNK1_Beadando
                     Adatok.Add(adat);
             }
         }
-        private void btnGet_Click_1(object sender, EventArgs e)
+        public void btnGet_Click(object sender, EventArgs e)
         {
             Elegtelen.Clear();
             XmlDocument xml = new XmlDocument();
             xml.Load("Hallgatok.xml");
-
-            dataGridView2.Visible = true;
+            
 
             foreach (XmlNode node in xml.DocumentElement)
             {
@@ -180,52 +213,41 @@ namespace FMBNK1_Beadando
 
             }
             //Hallgatók számának megjelenítése
-            label7.Text = (dataGridView2.Rows.Count).ToString();
+            //  label7.Text = (dataGridView2.Rows.Count).ToString();
+            feluletletrehozas();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
-        
-            const string message = "Biztosan törölni szeretnéd a azokat a hallgatókat, akik nem feleltek meg a követelményeknek?";
-            const string caption = "Törlés";
-            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (Elegtelen.Count == 0)
             {
-                foreach (HallgatoAdat t in Elegtelen)
-                {
-                    foreach (XmlNode xNode in xml.SelectNodes("hallgatok/diak"))
-                    {
-                        
-                        string torlendo = t.neptun;
-                        if (xNode.SelectSingleNode("Neptun").InnerText == torlendo) xNode.ParentNode.RemoveChild(xNode);
-                    }
-                }
-                xml.Save("Hallgatok.xml");
-                
+                MessageBox.Show("A törléshez először le kell kérdeznie a hallgatókat.");
             }
-            
+            else
+            {
+                const string message = "Biztosan törölni szeretnéd a azokat a hallgatókat, akik nem feleltek meg a követelményeknek? A hallgatók a forrás fájlból is törlésre kerülnek.";
+                const string caption = "Törlés";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    foreach (HallgatoAdat t in Elegtelen)
+                    {
+                        foreach (XmlNode xNode in xml.SelectNodes("hallgatok/diak"))
+                        {
+
+                            string torlendo = t.neptun;
+                            if (xNode.SelectSingleNode("Neptun").InnerText == torlendo) xNode.ParentNode.RemoveChild(xNode);
+                        }
+                    }
+                    xml.Save("Hallgatok.xml");
+                }
+            }
         }
 
        
         
-        //Mentés funkció 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            const string message = "A mentett fáljban csak a hallgatók Neptun-kódja szerepeljen?";
-            const string caption = "Mentés";
-            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.No)
-            {
-                mentes();
-            }
-            else if (result == DialogResult.Yes)
-            {
-                mentesnevnelkul();
-            }
-
-        }
+       
         private void mentes()
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -278,8 +300,23 @@ namespace FMBNK1_Beadando
                     sw.Write(";");
                     sw.Write(a.beadando);
                     sw.WriteLine();
-
                 }
+            }
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            const string message = "A mentett fáljban csak a hallgatók Neptun-kódja szerepeljen?";
+            const string caption = "Mentés";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                mentes();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                mentesnevnelkul();
             }
         }
     }
