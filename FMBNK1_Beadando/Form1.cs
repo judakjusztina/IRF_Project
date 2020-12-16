@@ -80,7 +80,12 @@ namespace FMBNK1_Beadando
                     Adatok.Add(adat);
             }
         }
+//LEKÉRDEZÉS
         public void btnGet_Click(object sender, EventArgs e)
+        {
+            lekerdezes();
+        }
+        private void lekerdezes()
         {
             Elegtelen.Clear();
             XmlDocument xml = new XmlDocument();
@@ -92,7 +97,7 @@ namespace FMBNK1_Beadando
                 //Mindhárom feltétel aktív
                 if (checkBoxhianyzas.Checked && checkboxvizsga.Checked && checkboxbead.Checked)
                 {
-                    if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value || int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text) || node.ChildNodes[4].InnerText == "Nem")
+                    if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value || int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text) || node.ChildNodes[4].InnerText == "0")
                     {
                         var adat = new HallgatoAdat();
 
@@ -126,7 +131,7 @@ namespace FMBNK1_Beadando
                     //Hiányzás és beadandó aktív
                     else if (checkBoxhianyzas.Checked && checkboxbead.Checked)
                     {
-                        if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value || node.ChildNodes[4].InnerText == "Nem")
+                        if (int.Parse(node.ChildNodes[2].InnerText) > numericUpDown1.Value || node.ChildNodes[4].InnerText == "0")
                         {
                             var adat = new HallgatoAdat();
 
@@ -142,7 +147,7 @@ namespace FMBNK1_Beadando
                     //Vizsga és beadandó aktív
                     else if (checkboxvizsga.Checked && checkboxbead.Checked)
                     {
-                        if (int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text) || node.ChildNodes[4].InnerText == "Nem")
+                        if (int.Parse(node.ChildNodes[3].InnerText) < int.Parse(ExamTB.Text) || node.ChildNodes[4].InnerText == "0")
                         {
                             var adat = new HallgatoAdat();
 
@@ -190,7 +195,7 @@ namespace FMBNK1_Beadando
                     //Csak beadandó aktív
                     else if (checkboxbead.Checked)
                     {
-                        if (node.ChildNodes[4].InnerText == "Nem")
+                        if (node.ChildNodes[4].InnerText == "0")
                         {
                             var adat = new HallgatoAdat();
 
@@ -206,13 +211,11 @@ namespace FMBNK1_Beadando
                 }
             }
 
-
             //Hallgatók számának megjelenítése
-             label11.Text = (Elegtelen.Count).ToString();
+            label11.Text = (Elegtelen.Count).ToString();
             feluletletrehozas();
-
         }
-
+//TÖRLÉS
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (Elegtelen.Count == 0)
@@ -237,13 +240,28 @@ namespace FMBNK1_Beadando
                         }
                     }
                     xml.Save("Hallgatok2.xml");
+                    xmlfeldolgozas();
+                    lekerdezes();
                 }
             }
         }
+//MENTÉS
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            const string message = "A mentett fáljban csak a hallgatók Neptun-kódja szerepeljen?";
+            const string caption = "Mentés";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-       
-        
-       
+            if (result == DialogResult.No)
+            {
+                mentes();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                mentesnevnelkul();
+            }
+        }
+
         private void mentes()
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -299,23 +317,5 @@ namespace FMBNK1_Beadando
                 }
             }
         }
-
-        private void btnSave_Click_1(object sender, EventArgs e)
-        {
-            const string message = "A mentett fáljban csak a hallgatók Neptun-kódja szerepeljen?";
-            const string caption = "Mentés";
-            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.No)
-            {
-                mentes();
-            }
-            else if (result == DialogResult.Yes)
-            {
-                mentesnevnelkul();
-            }
-        }
-
-      
     }
 }
